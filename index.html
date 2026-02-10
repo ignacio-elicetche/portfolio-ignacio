@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Ignacio Elicetche, Civil Engineer & Front End Developer. React, JavaScript, HTML/CSS projects.">
+    <title>Ignacio Elicetche | Frontend Developer</title>
+
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+</head>
+
+<body>
+    <div class="layout">
+        <header class="layout__header">
+            <h3 class="header__title">Ignacio Elicetche</h3>
+            <div class="header__icons">
+                <div id="language-toggle" class="lang-switcher">
+                    <span class="lang-text active" id="lang-en">EN</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-text" id="lang-es">ES</span>
+                </div>
+                <i class="fa-solid fa-circle-half-stroke" id="theme-toggle" title="Toggle Theme"
+                    aria-label="Change color theme"></i>
+            </div>
+        </header>
+
+        <main class="layout__main">
+
+            <section class="layout__section">
+                <div class="section__left">
+                    <h1 class="left__title" data-section="hero" data-value="title">
+                        Hey, I'm <span class="typing-name">Ignacio</span>
+                    </h1>
+                    <h2 class="left__subtitle" data-section="hero" data-value="subtitle">
+                        <span class="code-highlight">&lt; Hello World /&gt;</span>, Programmer Front End
+                    </h2>
+                    <p class="left__description" data-section="hero" data-value="description">
+                        Civil Engineer pivoting to Web Development. Focused on building clean, structural, and
+                        high-performing front-end experiences.
+                    </p>
+
+                    <div class="btns-container">
+                        <a href="https://github.com/" class="btn btn--primary" target="_blank">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://linkedin.com/" class="btn" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                    <a href="mailto:ignacioelicetche@gmail.com" class="btn" id="btn-email">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                        <a href="./assets/pdf/Ignacio_Elicetche_CV.pdf" class="btn btn--primary"
+                            download="Ignacio_Elicetche_CV.pdf">
+                            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="section__right">
+                    <img src="./assets/img/LIEC.jpg" alt="Ignacio Elicetche" class="profile-pic">
+                    <div class="tech-stack">
+                        <i class="fa-brands fa-html5" title="HTML5"></i>
+                        <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+                        <i class="fa-brands fa-square-js" title="JavaScript"></i>
+                        <i class="fa-brands fa-react" title="React"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="layout__section projects-section" id="projects">
+                <div class="projects__container">
+
+                    <h2 class="section__title hidden" data-section="projects" data-value="section_title">
+                        My Projects
+                    </h2>
+
+                    <div class="projects__grid">
+
+                        <article class="project-card hidden">
+                            <div class="card__image">
+                                <img src="./assets/img/taskApp.png" alt="Task Manager App">
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title" data-section="projects" data-value="title_task">Task Manager App
+                                </h3>
+                                <p class="card__desc" data-section="projects" data-value="desc_task">
+                                    A task management application built with React. Allows creating, editing, and
+                                    deleting tasks with data persistence.
+                                </p>
+
+                                <div class="card__tech">
+                                    <span class="tech-tag"><i class="fa-brands fa-react"></i> React</span>
+                                    <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                                </div>
+
+                                <div class="card__actions">
+                                    <a href="#" class="btn btn--small" target="_blank">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="btn btn--small btn--primary" target="_blank">
+                                        <i class="fa-solid fa-desktop"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card hidden">
+                            <div class="card__image">
+                                <img src="./assets/img/kinwa.png" alt="Vegetarian Restaurant">
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title" data-section="projects" data-value="title_resto">Vegetarian
+                                    Restaurant</h3>
+                                <p class="card__desc" data-section="projects" data-value="desc_resto">
+                                    Responsive landing page for a restaurant. Focused on attractive UI/UX, interactive
+                                    menu, and reservation form.
+                                </p>
+
+                                <div class="card__tech">
+                                    <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+                                    <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                                    <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                                </div>
+
+                                <div class="card__actions">
+                                    <a href="#" class="btn btn--small" target="_blank">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="btn btn--small btn--primary" target="_blank">
+                                        <i class="fa-solid fa-desktop"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card hidden">
+                            <div class="card__image">
+                                <img src="./assets/img/portfolio.png" alt="Portfolio Website">
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__title" data-section="projects" data-value="title_portfolio">My
+                                    Portfolio</h3>
+                                <p class="card__desc" data-section="projects" data-value="desc_portfolio">
+                                    This website designed from scratch with semantic HTML, modern CSS, and JavaScript
+                                    for theming and internationalization.
+                                </p>
+
+                                <div class="card__tech">
+                                    <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+                                    <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                                    <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                                </div>
+
+                                <div class="card__actions">
+                                    <a href="https://github.com/" class="btn btn--small" target="_blank">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="btn btn--small btn--primary" target="_blank">
+                                        <i class="fa-solid fa-desktop"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="layout__section education-section" id="education">
+                <div class="education__container">
+            
+                    <h2 class="section__title hidden" data-section="education" data-value="title">
+                        Educación
+                    </h2>
+            
+                    <div class="education__grid">
+            
+                        <article class="edu-card hidden">
+                            <div class="edu__icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div class="edu__content">
+                                <span class="edu__year">2024 - 2025</span>
+                                <h3 class="edu__degree" data-section="education" data-value="ucsd_degree">Front End Development
+                                    Certificate</h3>
+                                <h4 class="edu__school">University of California San Diego (UCSD) Extended Studies</h4>
+                                <p class="edu__desc" data-section="education" data-value="ucsd_desc">
+                                    Intensive program focused on modern web technologies: HTML5, CSS3, JavaScript (ES6+), and React.js. SPA development and
+                                    responsive design.
+                                </p>
+                            </div>
+                        </article>
+            
+                        <article class="edu-card hidden">
+                            <div class="edu__icon">
+                                <i class="fa-solid fa-hard-hat"></i>
+                            </div>
+                            <div class="edu__content">
+                                <span class="edu__year">2004 - 2012</span>
+                                <h3 class="edu__degree" data-section="education" data-value="civil_degree">Ingeniería Civil</h3>
+                                <h4 class="edu__school">Universidad de Concepción</h4>
+                                <p class="edu__desc" data-section="education" data-value="civil_desc">
+                                    Solid background in logic, complex problem solving, and project management. Transferable skills to software development
+                                    and system architecture.
+                                </p>
+                            </div>
+                        </article>
+            
+                    </div>
+                </div>
+            </section>
+
+            <footer class="layout__footer">
+                <p>© 2026 Ignacio Elicetche. Built with <i class="fa-solid fa-heart" style="color: var(--accent-blue);"></i> and
+                    code.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
