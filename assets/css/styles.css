@@ -1,673 +1,353 @@
 /* ==========================================================================
-
    1. VARIABLES AND THEMES (Custom Properties)
-
    ========================================================================== */
 
 :root {
-
     /* Default Dark Mode Colors */
-
     --bg-gradient: linear-gradient(135deg, #000000 0%, #341B7A 100%);
-
     --bg-header: #0C1222;
-
     --text-main: #FFFFFF;
-
     --text-secondary: #CCCCCC;
-
     --text-desc: #e0e0e0;
-
     --icon-color: antiquewhite;
-
     --accent-blue: #92C4FE;
-
     --btn-border: #4F46E5;
-
     --btn-hover-bg: rgba(79, 70, 229, 0.1);
-
     --profile-border: #341B7A;
     --bg-card: rgba(12, 18, 34, 0.6);
-        /* Fondo semitransparente oscuro */
     --card-border: #341B7A;
-
 }
 
 body.light-mode {
-    /* OPCIÓN PRO: Clean Tech (Gris Azulado Sutil) */
-    /* Se ve mucho más limpio y moderno que el degradado morado fuerte */
+    /* Light Mode: Clean Tech Theme (Subtle Blue-Grey) */
     --bg-gradient: linear-gradient(135deg, #F9FAFB 0%, #E0E7FF 100%);
 
-    /* Header casi blanco para que destaque limpio */
+    /* High contrast header */
     --bg-header: rgba(255, 255, 255, 0.9);
 
-    /* Textos con alto contraste (Más fácil de leer para reclutadores) */
+    /* High contrast text for readability */
     --text-main: #111827;
-    /* Casi negro */
+    /* Almost Black */
     --text-secondary: #4B5563;
-    /* Gris medio */
+    /* Medium Grey */
     --text-desc: #374151;
-    /* Gris oscuro para descripciones */
+    /* Dark Grey */
 
-    /* Iconos oscuros */
+    /* Dark Icons */
     --icon-color: #1F2937;
 
-    /* Mantenemos tu azul índigo, es un excelente color de acento */
+    /* Primary Accent */
     --accent-blue: #4F46E5;
 
-    /* Fondos de botones sutiles */
+    /* UI Elements */
     --btn-hover-bg: rgba(79, 70, 229, 0.1);
-
-    /* Bordes: En lugar de morado, usamos el azul principal o transparencias */
     --profile-border: #4F46E5;
     --card-border: rgba(79, 70, 229, 0.2);
-
-    /* Tarjetas: Blancas con alta opacidad para que el contenido resalte */
     --bg-card: rgba(255, 255, 255, 0.85);
 }
 
-
-
-
 /* ==========================================================================
-
    2. GLOBAL / BASE STYLES
-
    ========================================================================== */
 
 html {
-
     font-size: 10px;
-
-    /* 1rem = 10px for easier math */
-
+    /* Base size for rem calculations */
     scroll-behavior: smooth;
-
 }
-
-
 
 body {
-
     font-family: 'Montserrat', sans-serif;
-
     font-size: 1.6rem;
-
     background: var(--bg-gradient);
-
     min-height: 100vh;
-
     margin: 0;
-
     background-attachment: fixed;
-
     color: var(--text-main);
-
     overflow-x: hidden;
-
     transition: background 0.5s ease, color 0.3s ease;
-
 }
-
-
 
 /* ==========================================================================
-
    3. LAYOUT COMPONENTS
-
    ========================================================================== */
 
-
-
 /* --- Header --- */
-
 .layout__header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     background-color: var(--bg-header);
-
     padding: 1.5rem 0;
-
     transition: background-color 0.3s ease;
-
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
+    /* Sticky Positioning */
     position: fixed;
-
-    /* Fixes the header to the viewport */
-
     top: 0;
-
-    /* Sticks it to the very top */
-
     left: 0;
-
-    /* Ensures it starts from the left edge */
-
     width: 100%;
-
-    /* Makes it span the full width */
-
     z-index: 1000;
 
-    /* Keeps it on top of all other elements */
-
+    /* Blur Effect */
     backdrop-filter: blur(10px);
-
-    /* Blurs the content behind the header */
-
     -webkit-backdrop-filter: blur(10px);
-
-    /* For Safari support */
-
-
-
 }
-
-
 
 .header__title {
-
     margin-left: 10rem;
-
     font-size: 2.2rem;
-
     color: var(--text-main);
-
 }
 
-
-
 .header__icons {
-
     display: flex;
-
     gap: 3rem;
-
     padding-right: 10rem;
-
     align-items: center;
-
-
-
 }
 
 .layout__main {
-
     padding-top: 80px;
-
 }
-
-
 
 /* --- Hero Section --- */
-
 .layout__section {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     min-height: calc(100vh - 80px);
-
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 2rem;
-
-
-
 }
-
-
 
 .section__left,
-
 .section__right {
-
     flex: 1;
-
 }
 
-
-
 /* ==========================================================================
-
-   4. UI ELEMENTS (Buttons, Icons, Tech Stack)
-
+   4. UI ELEMENTS
    ========================================================================== */
 
-
-
-/* --- Hero Typography --- */
-
+/* --- Typography --- */
 .left__title {
-
     font-size: 5.5rem;
-
     margin-bottom: 0.5rem;
-
     font-weight: 800;
-
 }
-
-
 
 .left__subtitle {
-
     font-size: 2rem;
-
     color: var(--text-secondary);
-
     margin-bottom: 2rem;
-
 }
-
-
 
 .left__description {
-
     line-height: 1.6;
-
     color: var(--text-desc);
-
     margin-bottom: 3rem;
-
     max-width: 500px;
-
 }
 
-
-
-/* Language Switcher */
-
+/* --- Language Switcher --- */
 .lang-switcher {
-
     cursor: pointer;
-
     font-size: 1.6rem;
-
     font-weight: 700;
-
     color: var(--icon-color);
-
     display: flex;
-
     gap: 0.5rem;
-
 }
-
-
 
 .lang-text {
-
     opacity: 0.4;
-
     transition: 0.3s;
-
 }
-
-
 
 .lang-text.active {
-
     opacity: 1;
-
     color: var(--accent-blue);
-
 }
-
-
 
 /* --- Code Highlight & Typing --- */
-
 .code-highlight {
-
     color: #4AF626;
-
     font-family: 'Courier New', monospace;
-
     font-weight: bold;
-
 }
-
-
 
 body.light-mode .code-highlight {
-
     color: #16a34a;
-
 }
-
-
 
 /* --- Buttons --- */
-
 .btns-container {
-
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 1.5rem;
-
 }
-
-
 
 .btn {
-
     display: inline-flex;
-
     align-items: center;
-
     gap: 1rem;
-
     border: 2px solid var(--btn-border);
-
     color: var(--accent-blue);
-
     padding: 1.2rem 2.2rem;
-
     border-radius: 0.8rem;
-
     text-decoration: none;
-
     font-weight: 600;
-
     transition: all 0.3s ease;
-
     background: transparent;
-
     cursor: pointer;
-
 }
-
-
 
 .btn:hover {
-
     background: var(--btn-hover-bg);
-
     transform: translateY(-3px);
-
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-
 }
-
-
 
 .btn--primary {
-
     background-color: var(--btn-border);
-
     color: white !important;
-
 }
-
-
 
 /* --- Profile Pic & Tech Stack --- */
-
 .profile-pic {
-
     max-width: 380px;
-
     width: 100%;
-
     border-radius: 100%;
-
     border: 5px solid var(--profile-border);
-
     transition: 0.4s;
-
     display: block;
-
     margin: 0 auto;
-
 }
-
-
 
 .tech-stack {
-
     display: flex;
-
     justify-content: center;
-
     gap: 2.5rem;
-
     margin-top: 3rem;
-
 }
-
-
 
 .tech-stack i {
-
     font-size: 4rem;
-
     color: var(--icon-color);
-
     transition: all 0.3s ease;
-
 }
-
-
 
 .tech-stack i:hover {
-
     transform: translateY(-5px);
-
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
-
 }
 
-
-
-/* Brand colors on hover */
-
+/* Brand Colors on Hover */
 .tech-stack .fa-html5:hover {
-
     color: #E34F26;
-
 }
-
-
 
 .tech-stack .fa-css3-alt:hover {
-
     color: #1572B6;
-
 }
-
-
 
 .tech-stack .fa-square-js:hover {
-
     color: #F7DF1E;
-
 }
-
-
 
 .tech-stack .fa-react:hover {
-
     color: #61DAFB;
-
     animation: rotate-react 5s linear infinite;
-
 }
 
-
-
 /* ==========================================================================
-
    5. ANIMATIONS (Keyframes)
-
    ========================================================================== */
 
 .typing-name {
-
     color: var(--accent-blue);
-
     display: inline-block;
-
     vertical-align: bottom;
-
     overflow: hidden;
-
     white-space: nowrap;
-
     border-right: 3px solid var(--accent-blue);
-
     animation: typing 1.2s steps(7) infinite alternate, blink-caret .75s step-end infinite;
-
 }
 
-
-
 @keyframes typing {
-
     from {
-
         width: 0
     }
 
-
-
     to {
-
         width: 7.5ch
     }
-
 }
-
-
 
 @keyframes blink-caret {
 
-
-
     from,
-
     to {
-
         border-color: transparent
     }
 
-
-
     50% {
-
         border-color: var(--accent-blue);
-
     }
-
 }
-
-
 
 @keyframes rotate-react {
-
     from {
-
         transform: translateY(-5px) rotate(0deg);
-
     }
-
-
 
     to {
-
         transform: translateY(-5px) rotate(360deg);
-
     }
-
 }
 
-
-
 /* ==========================================================================
-
    6. RESPONSIVE DESIGN (Media Queries)
-
    ========================================================================== */
 
 @media (max-width: 768px) {
-
     .layout__section {
-
         flex-direction: column-reverse;
-
         text-align: center;
-
         padding-top: 5rem;
-
     }
-
-
 
     .header__title,
-
     .header__icons {
-
         margin: 0;
-
         padding: 1rem 2rem;
-
     }
-
-
 
     .btns-container {
-
         justify-content: center;
-
     }
-
-
 
     .left__title {
-
         font-size: 3.5rem;
-
     }
-
-
 
     .tech-stack {
-
         gap: 1.5rem;
-
         margin-top: 2rem;
-
         margin-bottom: 3rem;
-
     }
-
-
 
     .tech-stack i {
-
         font-size: 3.5rem;
-
     }
-
 }
+
 /* ==========================================================================
    7. PROJECTS SECTION
    ========================================================================== */
 
-/* Ajuste para que esta sección fluya en columna, no en fila como el Hero */
 .projects-section {
     flex-direction: column;
     justify-content: flex-start;
@@ -683,7 +363,7 @@ body.light-mode .code-highlight {
     display: inline-block;
 }
 
-/* Decoración debajo del título */
+/* Underline Decoration */
 .section__title::after {
     content: '';
     display: block;
@@ -711,11 +391,10 @@ body.light-mode .code-highlight {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(5px);
 
-    /* --- NUEVO: Flexbox para estructura vertical --- */
+    /* Flexbox for vertical alignment */
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* Ocupa toda la altura que le dé la grilla */
 }
 
 .project-card:hover {
@@ -727,7 +406,7 @@ body.light-mode .code-highlight {
     height: 200px;
     width: 100%;
     background-color: #2c2c2c;
-    /* Placeholder por si no carga la imagen */
+    /* Placeholder */
 }
 
 .card__image img {
@@ -744,11 +423,10 @@ body.light-mode .code-highlight {
 .card__content {
     padding: 2rem;
 
-    /* --- NUEVO: Para empujar los botones al final --- */
+    /* Push buttons to bottom */
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* Ocupa el espacio sobrante */
 }
 
 .card__title {
@@ -762,7 +440,6 @@ body.light-mode .code-highlight {
     color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 2rem;
-    
 }
 
 /* --- Tech Tags --- */
@@ -784,7 +461,7 @@ body.light-mode .code-highlight {
     gap: 0.5rem;
 }
 
-/* --- Botones pequeños --- */
+/* --- Card Actions (Buttons) --- */
 .card__actions {
     display: flex;
     gap: 1rem;
@@ -797,29 +474,28 @@ body.light-mode .code-highlight {
 }
 
 /* ==========================================================================
-   8. MEDIA QUERIES (Definitivo para Móviles y Tablets)
+   8. MEDIA QUERIES (Mobile & Tablet)
    ========================================================================== */
 
-/* Abarca desde celulares hasta tablets en horizontal (aprox 1024px) */
 @media (max-width: 1024px) {
 
-    /* 1. CONTENEDOR PRINCIPAL: Alineación vertical estricta */
-    .layout__section, 
+    /* 1. Main Container: Vertical Alignment */
+    .layout__section,
     .projects-section {
-        flex-direction: column !important; /* Fuerza columna (Título arriba, contenido abajo) */
+        flex-direction: column !important;
         justify-content: center;
         padding-top: 4rem;
-        height: auto; /* Permite que la altura crezca según el contenido */
+        height: auto;
     }
 
-    /* 2. HEADER: Ajustes de márgenes */
+    /* 2. Header Adjustments */
     .header__title,
     .header__icons {
         margin: 0;
         padding: 1rem 2rem;
     }
 
-    /* 3. HERO (Tu presentación) */
+    /* 3. Hero Section */
     .section__left {
         text-align: center;
         margin-bottom: 4rem;
@@ -833,70 +509,65 @@ body.light-mode .code-highlight {
         margin-bottom: 2rem;
     }
 
-    /* 4. GRID DE PROYECTOS: ¡Aquí está la solución! */
+    /* 4. Projects Grid: Single Column Force */
     .projects__grid {
-        /* ESTO FUERZA UNA SOLA COLUMNA */
-        grid-template-columns: 1fr !important; 
-        
-        /* Centramos la grilla y limitamos su ancho para que no se vea gigante en tablets */
+        grid-template-columns: 1fr !important;
         width: 100%;
-        max-width: 500px; 
+        max-width: 500px;
         margin: 0 auto;
         gap: 3rem;
     }
 
-    /* 5. TARJETAS */
+    /* 5. Cards */
     .project-card {
-        width: 100%; /* Ocupa todo el ancho disponible de la columna */
-        margin: 0;   /* Quitamos márgenes extraños */
+        width: 100%;
+        margin: 0;
     }
 
     .card__content {
         padding: 2rem;
     }
 
-    /* Ajuste de textos para pantallas pequeñas */
+    /* Text Adjustments */
     .left__title,
     .section__title {
         font-size: 3rem;
     }
-    
+
     .left__description {
-        margin: 0 auto 3rem auto; /* Centrar descripción */
+        margin: 0 auto 3rem auto;
     }
 }
 
-
 /* ==========================================================================
-   9. ANIMACIONES DE SCROLL (Reveal)
+   9. SCROLL REVEAL ANIMATIONS
    ========================================================================== */
 
-/* Estado inicial: Invisible y desplazado hacia abajo */
+/* Initial State */
 .hidden {
     opacity: 0;
-    filter: blur(5px); /* Efecto borroso inicial */
-    transform: translateY(50px); /* Empieza 50px más abajo */
-    transition: all 1s ease; /* La magia de la transición (1 segundo) */
+    filter: blur(5px);
+    transform: translateY(50px);
+    transition: all 1s ease;
 }
 
-/* Estado final: Visible y en su posición original */
+/* Final State */
 .show {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
 }
 
-/* Opcional: Retraso para las tarjetas (Efecto cascada) */
-/* La 2da tarjeta espera 200ms */
+/* Staggered Delays for Cards */
 .project-card:nth-child(2) {
-    transition-delay: 200ms; 
-}
-/* La 3ra tarjeta espera 400ms */
-.project-card:nth-child(3) {
-    transition-delay: 400ms; 
+    transition-delay: 200ms;
 }
 
-/* Respetar preferencias de usuario que no quieren movimiento */
+.project-card:nth-child(3) {
+    transition-delay: 400ms;
+}
+
+/* Respect User Motion Preferences */
 @media(prefers-reduced-motion) {
     .hidden {
         transition: none;
@@ -904,7 +575,7 @@ body.light-mode .code-highlight {
 }
 
 /* ==========================================================================
-   10. SECCIÓN EDUCACIÓN
+   10. EDUCATION SECTION
    ========================================================================== */
 
 .education-section {
@@ -918,7 +589,7 @@ body.light-mode .code-highlight {
     flex-direction: column;
     gap: 2rem;
     width: 100%;
-    max-width: 800px; /* Más estrecho para mejor lectura */
+    max-width: 800px;
 }
 
 .edu-card {
@@ -934,7 +605,7 @@ body.light-mode .code-highlight {
 }
 
 .edu-card:hover {
-    transform: translateX(10px); /* Efecto de deslizamiento al pasar el mouse */
+    transform: translateX(10px);
     border-color: var(--accent-blue);
 }
 
@@ -974,7 +645,7 @@ body.light-mode .code-highlight {
 
 .edu__school {
     font-size: 1.6rem;
-    color: var(--text-secondary); /* Color grisáceo */
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-weight: 400;
     font-style: italic;
@@ -986,20 +657,20 @@ body.light-mode .code-highlight {
     line-height: 1.6;
 }
 
-/* Responsividad para móviles */
+/* Mobile Adjustments */
 @media (max-width: 600px) {
     .edu-card {
-        flex-direction: column; /* Apilar icono y texto */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
+
     .edu__icon {
         margin-bottom: 1.5rem;
     }
 }
 
-/* Footer */
+/* --- Footer --- */
 .layout__footer {
     text-align: center;
     padding: 2rem;

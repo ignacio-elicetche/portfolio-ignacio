@@ -1,36 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // ==========================================================================
-    // 1. LÓGICA DE TEMA (DARK / LIGHT MODE)
-    // ==========================================================================
+
+    /* =========================================
+       1. Theme Logic (Dark / Light Mode)
+       ========================================= */
     const themeButton = document.getElementById('theme-toggle');
     const body = document.body;
 
-    if(themeButton) {
+    if (themeButton) {
         themeButton.addEventListener('click', () => {
-            // Alternamos la clase 'light-mode' en el body
             body.classList.toggle('light-mode');
-            
-            // Cambiar el icono dependiendo del modo
-            if(body.classList.contains('light-mode')) {
-                themeButton.classList.remove('fa-circle-half-stroke');
-                themeButton.classList.add('fa-sun'); // Icono de sol
+
+            // Toggle icon between sun and moon
+            if (body.classList.contains('light-mode')) {
+                themeButton.classList.replace('fa-circle-half-stroke', 'fa-sun');
             } else {
-                themeButton.classList.remove('fa-sun');
-                themeButton.classList.add('fa-circle-half-stroke'); // Icono original
+                themeButton.classList.replace('fa-sun', 'fa-circle-half-stroke');
             }
         });
     }
 
-    // ==========================================================================
-    // 2. LÓGICA DE IDIOMA (TRADUCCIONES)
-    // ==========================================================================
+
+    /* =========================================
+       2. Localization (i18n)
+       ========================================= */
     const langButton = document.getElementById('language-toggle');
     const textsToChange = document.querySelectorAll("[data-section]");
     const textEn = document.getElementById('lang-en');
     const textEs = document.getElementById('lang-es');
 
-    // Objeto con todos los textos (Hero + Proyectos + Educación)
+    // Translation Dictionary
     const translations = {
         "es": {
             "hero": {
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "en": {
             "hero": {
                 "title": "Hey, I'm <span class='typing-name'>Ignacio</span>",
-                "subtitle": "<span class='code-highlight'>&lt; Hello World /&gt;</span>, Programmer Front End",
+                "subtitle": "<span class='code-highlight'>&lt; Hello World /&gt;</span>, Front End Developer",
                 "description": "Civil Engineer pivoting to Web Development. Focused on building clean, structural, and high-performing front-end experiences.",
                 "cv": "<i class='fa-solid fa-file-arrow-down'></i> Download CV"
             },
@@ -82,15 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let currentLang = "en"; // Idioma por defecto
+    let currentLang = "en";
 
-    if(langButton) {
+    if (langButton) {
         langButton.addEventListener('click', () => {
-            // Cambiar el estado del idioma
+            // Toggle language state
             currentLang = currentLang === "en" ? "es" : "en";
-            
-            // Actualizar visualmente qué idioma está activo (negrita/color)
-            if(currentLang === "es") {
+
+            // Update UI indicators
+            if (currentLang === "es") {
                 textEn.classList.remove('active');
                 textEs.classList.add('active');
             } else {
@@ -98,75 +96,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 textEn.classList.add('active');
             }
 
-            // Recorrer todos los elementos con el atributo data-section y actualizarlos
+            // Update text content based on data attributes
             textsToChange.forEach(el => {
-                const section = el.dataset.section; // "hero", "projects" o "education"
-                const value = el.dataset.value;     // ej: "title", "desc_task"
+                const section = el.dataset.section;
+                const value = el.dataset.value;
 
-                // Verificamos si existe la traducción para evitar errores
-                if (translations[currentLang][section] && translations[currentLang][section][value]) {
+                // Safe navigation to prevent errors if key is missing
+                if (translations[currentLang][section]?.[value]) {
                     el.innerHTML = translations[currentLang][section][value];
                 }
             });
         });
     }
 
-    // ==========================================================================
-    // 3. ANIMACIÓN DE SCROLL (INTERSECTION OBSERVER)
-    // ==========================================================================
-    
+
+    /* =========================================
+       3. Scroll Reveal Animation
+       ========================================= */
     const observerOptions = {
-        root: null, // Observa el viewport (pantalla)
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+        threshold: 0.1 // Trigger animation when 10% of element is visible
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Cuando el elemento entra en pantalla, le ponemos la clase 'show'
                 entry.target.classList.add('show');
-                
-                // (Opcional) Dejar de observar para que no se anime de nuevo al subir
-                // observer.unobserve(entry.target); 
+                // observer.unobserve(entry.target); // Optional: Trigger only once
             }
         });
     }, observerOptions);
 
-    // Seleccionamos todos los elementos que tengan la clase 'hidden' en el HTML
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
-});
 
-// ==========================================================================
-    // 4. COPIAR EMAIL AL PORTAPAPELES (UX PRO)
-    // ==========================================================================
+
+    /* =========================================
+       4. Email Clipboard Feature (UX)
+       ========================================= */
     const emailBtn = document.getElementById('btn-email');
-    
-    if(emailBtn) {
+
+    if (emailBtn) {
         emailBtn.addEventListener('click', (e) => {
-            // Opcional: Si prefieres que NO se abra la app de correo, descomenta la siguiente línea:
-            e.preventDefault(); 
+            e.preventDefault(); // Prevent opening default mail client
 
             const email = "ignacioelicetche@gmail.com";
-            
-            // API del Portapapeles
+
             navigator.clipboard.writeText(email).then(() => {
-                
-                // Guardamos el contenido original del botón
                 const originalContent = emailBtn.innerHTML;
-                
-                // Feedback visual: Cambiamos el texto temporalmente
+
+                // Visual feedback for user
                 emailBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-                emailBtn.style.borderColor = '#4AF626'; // Borde verde
-                emailBtn.style.color = '#4AF626';      // Texto verde
-                
-                // Volver a la normalidad después de 2 segundos
+                emailBtn.style.borderColor = '#4AF626';
+                emailBtn.style.color = '#4AF626';
+
+                // Reset button state after 2 seconds
                 setTimeout(() => {
                     emailBtn.innerHTML = originalContent;
-                    emailBtn.style.borderColor = ''; // Vuelve al color original del CSS
-                    emailBtn.style.color = '';      // Vuelve al color original
+                    emailBtn.style.borderColor = '';
+                    emailBtn.style.color = '';
                 }, 2000);
             });
         });
     }
+
+});
