@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "ucsd_degree": "Certificado en Front End Development",
                 "ucsd_desc": "Programa intensivo enfocado en tecnologías web modernas: HTML5, CSS3, JavaScript (ES6+) y React.js. Desarrollo de aplicaciones SPA y diseño responsivo.",
                 "civil_degree": "Ingeniería Civil",
-                "civil_desc": "Formación sólida en lógica, resolución de problemas complejos y gestión de proyectos. Habilidades transferibles al desarrollo de software y arquitectura de sistemas."
+                "civil_desc": "Formación sólida en lógica, resolución de problemas complejos y gestión de proyectos. Habilidades transferibles al desarrollo de software y arquitectura de sistemas.",
+                "bachelor_degree": "Licenciatura en Ciencias de la Ingeniería",
+                 "bachelor_desc": "Formación fundamental en matemáticas avanzadas, física y mecánica estructural."
             }
         },
         "en": {
@@ -75,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 "ucsd_degree": "Front End Development Certificate",
                 "ucsd_desc": "Intensive program focused on modern web technologies: HTML5, CSS3, JavaScript (ES6+), and React.js. SPA development and responsive design.",
                 "civil_degree": "Civil Engineering",
-                "civil_desc": "Solid background in logic, complex problem solving, and project management. Transferable skills to software development and system architecture."
+                "civil_desc": "Solid background in logic, complex problem solving, and project management. Transferable skills to software development and system architecture.",
+                "bachelor_degree": "Bachelor of Engineering Sciences",
+                 "bachelor_desc": "Foundational training in advanced mathematics, physics, and structural mechanics."
             }
         }
     };
